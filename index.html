@@ -1,3 +1,20 @@
 ---
 layout: default
 ---
+
+<div class="posts">
+    <article class="post">
+
+        <h1><a href="{{ site.baseurl }}{{ post.url }}">啊啊啊啊</a></h1>
+  
+  
+      </article>
+  {% for post in site.posts %}
+    <article class="post">
+
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+
+
+    </article>
+  {% endfor %}
+</div>
