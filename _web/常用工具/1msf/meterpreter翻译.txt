@@ -1,0 +1,144 @@
+Core Commands
+=============
+
+    Command                   Description
+    -------                   -----------
+    background                当前会议背景  # 切换为后台，挂起
+    bg                        别名为背景    # 切换为后台
+    bgkill                    终止后台meterpreter脚本
+    bglist                    列出正在运行的后台脚本
+    run                       执行meterpreter脚本或Post模块
+    bgrun                     作为后台线程执行一个meterpreter脚本
+    channel                   显示信息或控制活动通道
+    close                     关闭一个通道
+    disable_unicode_encoding  禁用unicode字符串的编码
+    enable_unicode_encoding   启用unicode字符串编码
+    exit                      终止meterpreter会话
+    quit                      终止meterpreter会话
+    get_timeouts              获取当前会话超时值
+    guid                      获取会话GUID
+    info                      显示有关Post模块的信息
+    irb                       在当前会话上打开一个交互式Ruby shell
+    load                      加载一个或多个仪表扩展
+    machine_id                获取附加到会话的机器的MSF ID
+    migrate                   将服务器迁移到另一个进程
+    pivot                     管理主听众
+    pry                       在当前会话上打开撬调试器
+    read                      从通道读取数据
+    resource                  运行存储在文件中的命令
+    secure                    (重新)在会话上协商TLV包加密
+    sessions                  快速切换到另一个会话
+    set_timeouts              设置当前会话超时值
+    sleep                     强迫Meterpreter静音，然后重新建立会话。
+    transport                 更改当前传输机制
+    use                       不赞成使用别名“load”
+    uuid                      获取当前会话的UUID
+    write                     将数据写入通道
+
+
+
+Stdapi: 网络命令
+===========================
+
+    Command       Description
+    -------       -----------
+    arp           显示主机ARP缓存
+    getproxy      显示当前代理配置
+    ifconfig      Display interfaces
+    ipconfig      Display interfaces
+    netstat       显示网络连接      # 查看连接的网络端口
+    portfwd       将本地端口转发到远程服务
+    resolve       解析目标上的一组主机名
+    route         查看和修改路由表
+
+
+Stdapi: System Commands
+=======================
+
+    Command       Description
+    -------       -----------
+    clearev       清除事件日志
+    drop_token    放弃任何活动模拟令牌。
+    execute       执行一个命令
+    getenv        获取一个或多个环境变量值
+    getpid        获取当前进程标识符
+    getprivs      尝试启用当前进程可用的所有特权
+    getsid        获取服务器作为其运行身份的用户的SID
+    getuid        获取作为服务器运行的用户
+    kill          终止流程
+    localtime     显示目标系统的本地日期和时间
+    pgrep         按名称筛选进程
+    pkill         按名称终止进程
+    ps            运行的流程列表
+    reboot        重新启动远程计算机
+    reg           修改远程注册表并与之交互
+    rev2self      在远程机器上调用RevertToSelf()
+    shell         放入系统命令shell
+    shutdown      关闭远程计算机
+    steal_token   试图从目标进程窃取模拟令牌
+    suspend       挂起或恢复进程列表
+    sysinfo       获取有关远程系统(如OS)的信息
+
+
+Stdapi: User interface Commands
+===============================
+
+    Command        Description
+    -------        -----------
+    enumdesktops   List all accessible desktops and window stations
+    getdesktop     Get the current meterpreter desktop
+    idletime       Returns the number of seconds the remote user has been idle
+    keyboard_send  Send keystrokes
+    keyscan_dump   Dump the keystroke buffer
+    keyscan_start  Start capturing keystrokes
+    keyscan_stop   Stop capturing keystrokes
+    mouse          Send mouse events
+    screenshare    Watch the remote user's desktop in real time
+    screenshot     Grab a screenshot of the interactive desktop
+    setdesktop     Change the meterpreters current desktop
+    uictl          Control some of the user interface components
+
+
+Stdapi: Webcam Commands
+=======================
+
+    Command        Description
+    -------        -----------
+    record_mic     Record audio from the default microphone for X seconds
+    webcam_chat    Start a video chat
+    webcam_list    List webcams
+    webcam_snap    Take a snapshot from the specified webcam
+    webcam_stream  Play a video stream from the specified webcam
+
+
+Stdapi: Audio Output Commands
+=============================
+
+    Command       Description
+    -------       -----------
+    play          play an audio file on target system, nothing written on disk
+
+
+Priv: Elevate Commands
+======================
+
+    Command       Description
+    -------       -----------
+    getsystem     尝试将您的权限提升到本地系统的权限。
+
+
+Priv: Password database Commands
+================================
+
+    Command       Description
+    -------       -----------
+    hashdump      转储SAM数据库的内容
+
+
+Priv: Timestomp Commands
+========================
+
+    Command       Description
+    -------       -----------
+    timestomp     Manipulate file MACE attributes
+

@@ -1,0 +1,25 @@
+Usage: shodan [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  -h, --help  Show this message and exit.
+
+Commands:
+  alert       为您的帐户管理网络警报
+  convert     将给定的输入数据文件转换为不同的格式。
+  count       返回搜索结果的数目
+  data        大量数据访问Shodan
+  domain      查看域的所有可用信息
+  download    下载搜索结果并将其保存为压缩的JSON格式…
+  honeyscore  检查IP是否为蜜罐。
+  host        查看一个IP地址的所有可用信息
+  info        显示您的帐户的一般信息
+  init        初始化Shodan命令行
+  myip        打印您的外部IP地址
+  org         管理组织对Shodan的访问
+  parse       从压缩的JSON文件中提取信息。
+  radar       实时地图的一些结果，因为Shodan找到他们。
+  scan        使用Shodan扫描一个IP/网络块。
+  search      搜索Shodan数据库
+  stats       提供关于搜索查询的摘要信息
+  stream      实时流数据。
+  version     此工具的打印版本。
