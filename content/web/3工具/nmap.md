@@ -69,6 +69,9 @@ nmap -sS -P0 -sV -O ip
 
 获取打开特定端口的服务器列表
 nmap -sT -p 80 -oG – 192.168.1.* | grep open
+
+扫描B段
+sudo nmap -sS -Pn -n --open --min-hostgroup 500 --min-parallelism 2048 --host-timeout 30 -T4 -v -oG result.txt -iL ip.txt
 ```
 
 ## nmap脚本分类
@@ -115,10 +118,17 @@ nmap --script=ftp-brute.nse ip
 
 利用第三方的数据库或资源
 nmap --script=external ip
-
-扫描B段
-sudo nmap -sS -Pn -n --open --min-hostgroup 500 --min-parallelism 2048 --host-timeout 30 -T4 -v -oG result.txt -iL ip.txt
 ```
+
+### nmap插件
+
+- [Nmap的高级漏洞扫描模块Vulscan](https://github.com/scipag/vulscan)
+
+```nmap
+放到以下Nmap文件夹内：Nmap\scripts\vulscan\*
+nmap -sV --script=vulscan/vulscan.nse www.example.com
+```
+
 
 ### 扩展执行流程
 
