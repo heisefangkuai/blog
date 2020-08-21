@@ -5,15 +5,15 @@ Nmap具体功能：端口扫描，协议扫描，漏洞扫描，绕过防护，�
 ## 端口状态
 
 - 公认端口：0--1024
-- 注册端口：1025--49151。
-- 动态和/或私有端口：49152--65535。
+- 注册端口：1025--49151
+- 动态和/或私有端口：49152--65535
 
 - Open：端口开启，有程序监听此端口
 - Closed：端口关闭，数据能到达主机，但是没有程序监听此端口
 - Filtered：数据未能到达主机
 - Unfiltered：数据能到达主机，但是Nmap无法判断端口开启还是关闭
-- Open | filtered：端口没返回值，主要出现在UDP，IP，FIN，NULL和Xmas扫描
-- Closed | filtered：只出现在IP ID idle 扫描
+- Open / filtered：端口没返回值，主要出现在UDP，IP，FIN，NULL和Xmas扫描
+- Closed / filtered：只出现在IP ID idle 扫描
 
 ## 扫描方法
 
@@ -46,17 +46,17 @@ Nmap具体功能：端口扫描，协议扫描，漏洞扫描，绕过防护，�
 
 ## 端口扫描
 
--sS：TCP SYN扫描，没有完成三次握手（匿名扫描，默认不加类型，需要root权限，扫描速度快）
--sT：Connect扫描，完成了TCP的三次握手（不需要root权限，TCP扫描的默认模式，端口状态和SYN相同，耗时长）
--sU：UDP扫描，速度慢
--sF：TCP FIN扫描
--sN：TCP NULL扫描，向目标端口发送一个不包含任何标志的数据包
--sX：TCP Xmas Tree扫描，向目标端口发送一个含有FIN、URG和PUSH标志的数据包
--sI：idle扫描，伪装成 “第三方” 使自己不被发现
--sV：指定nmap进行版本探测
--O：nmap进行OS探测
--F：扫描常见的100个端口
--p：指定某一个端口(-p 80/–p http/-p *)
+- -sS：TCP SYN扫描，没有完成三次握手（匿名扫描，默认不加类型，需要root权限，扫描速度快）
+- -sT：Connect扫描，完成了TCP的三次握手（不需要root权限，TCP扫描的默认模式，端口状态和SYN相同，耗时长）
+- -sU：UDP扫描，速度慢
+- -sF：TCP FIN扫描
+- -sN：TCP NULL扫描，向目标端口发送一个不包含任何标志的数据包
+- -sX：TCP Xmas Tree扫描，向目标端口发送一个含有FIN、URG和PUSH标志的数据包
+- -sI：idle扫描，伪装成 “第三方” 使自己不被发现
+- -sV：指定nmap进行版本探测
+- -O：nmap进行OS探测
+- -F：扫描常见的100个端口
+- -p：指定某一个端口(-p 80/–p http/-p *)
 
 ## nmap常用的扫描命令
 
@@ -115,6 +115,9 @@ nmap --script=ftp-brute.nse ip
 
 利用第三方的数据库或资源
 nmap --script=external ip
+
+扫描B段
+sudo nmap -sS -Pn -n --open --min-hostgroup 500 --min-parallelism 2048 --host-timeout 30 -T4 -v -oG result.txt -iL ip.txt
 ```
 
 ### 扩展执行流程
