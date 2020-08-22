@@ -9,15 +9,36 @@
 - CVE漏洞编号：Common Vulnerabilities & Exposures 公开的漏洞
 - XSS Cheat Sheet: xss备忘单
 
+## 浏览器插件
+
+- SwitchyOmega
+- Shodan
+- FOFA Pro View
+- IP, DNS & Security Tools | HackerTarget.com
+- wappalyzer
+- XPath Helper
+- 迅雷下载
+
+## 网络安全法
+
+- [中华人民共和国网络安全法](http://www.xinhuanet.com/politics/2016-11/07/c_1119867015.htm)
+- [T00ls法律讲堂](https://www.t00ls.net/Law-articles.html)
+
 ## [信息收集](./1信息收集/信息收集.html)
 
 ## 常见漏洞
 
+- [xss速查表](./2漏洞/xss速查表.html)
+- [sql injection](./2漏洞/sql注入进阶.html)
+- [文件上传漏洞](./2漏洞/文件上传漏洞.html)
 - [PHP反序列化](./2漏洞/PHP反序列化漏洞.html)
+- 逻辑漏洞
 
 ## 工具
 
 - [nmap](./3工具/nmap.html)
+
+## 通用漏洞
 
 ## ThinkPHP5.0和5.1版本远程代码执行分析
 
@@ -34,3 +55,4 @@
 ```
 
 - [WinRAR目录穿越漏洞（CVE-2018-20250）](https://github.com/WyAtu/CVE-2018-20250)
+- [IIS短文件漏洞](https://github.com/lijiejie/IIS_shortname_Scanner)
