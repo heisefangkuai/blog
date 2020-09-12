@@ -4,6 +4,7 @@
 - [vim编辑器](./linux/vim编辑器.html)
 - [给linux增加虚拟内存](./linux/给linux增加虚拟内存.html)
 - [远程连接linux图形界面](./linux/远程连接linux图形界面.html)
+- [tcpdump](https://mp.weixin.qq.com/s/Txb6PeQzNest1lLNgIhdCQ)
 
 ## linux基本常用命令
 

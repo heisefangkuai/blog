@@ -14,7 +14,7 @@
 - SwitchyOmega
 - Shodan
 - FOFA Pro View
-- IP, DNS & Security Tools | HackerTarget.com
+- IP, DNS & Security Tools / HackerTarget.com
 - wappalyzer
 - XPath Helper
 - 迅雷下载
@@ -24,15 +24,22 @@
 - [中华人民共和国网络安全法](http://www.xinhuanet.com/politics/2016-11/07/c_1119867015.htm)
 - [T00ls法律讲堂](https://www.t00ls.net/Law-articles.html)
 
+## 网站
+
+- [渗透师导航](https://www.shentoushi.top/)
+- [exploit-db](https://www.exploit-db.com/)
+- [hackthebox](https://www.hackthebox.eu/)
+- [exp库](http://expku.com/)
+
 ## [信息收集](./1信息收集/信息收集.html)
 
 ## 常见漏洞
 
 - [xss速查表](./2漏洞/xss速查表.html)
-- [sql injection](./2漏洞/sql注入进阶.html)
+- [sql injection](./2漏洞/sql/sql注入进阶.html)
 - [文件上传漏洞](./2漏洞/文件上传漏洞.html)
 - [PHP反序列化](./2漏洞/PHP反序列化漏洞.html)
-- 逻辑漏洞
+- [逻辑漏洞](./2漏洞/逻辑漏洞.html)
 
 ## 工具
 
