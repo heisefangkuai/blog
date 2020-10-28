@@ -6,21 +6,21 @@ Nmap具体功能：端口扫描，协议扫描，漏洞扫描，绕过防护，�
 
 - 公认端口：0--1024
 - 注册端口：1025--49151
-- 动态和/或私有端口：49152--65535
+- 动态和、或私有端口：49152--65535
 
 - Open：端口开启，有程序监听此端口
 - Closed：端口关闭，数据能到达主机，但是没有程序监听此端口
 - Filtered：数据未能到达主机
 - Unfiltered：数据能到达主机，但是Nmap无法判断端口开启还是关闭
-- Open / filtered：端口没返回值，主要出现在UDP，IP，FIN，NULL和Xmas扫描
-- Closed / filtered：只出现在IP ID idle 扫描
+- Open、filtered：端口没返回值，主要出现在UDP，IP，FIN，NULL和Xmas扫描
+- Closed、filtered：只出现在IP ID idle 扫描
 
 ## 扫描方法
 
 - 单个扫描：nmap 192.168.1.1
 - 多个扫描：nmap 192.168.1.1 192.168.1.2
 - 网段扫描：nmap 192.168.2.1-192.168.2.100
-- C段扫描： Nmap  192.168.0.1/24
+- C段扫描： Nmap  192.168.0.1/24、192.168.0.*
 - 导入扫描：nmap -iL [test.txt]
 - 排除扫描：Nmap 192.168.0.0/24 --exclude 192.168.0.2
 - 随机扫描：Nmap -sn -iR 3
@@ -29,6 +29,7 @@ Nmap具体功能：端口扫描，协议扫描，漏洞扫描，绕过防护，�
 
 - -sn：不对目标的端口和其他信息进行扫描
 - -PR：ARP协议的主机发现
+- -Pn、(-PN、-P0)：不进行Ping扫描
 - -PE：ICMP协议的主机发现，这个过程实质上和ping是一样的
 - -PP：ICMP协议的时间戳主机发现
 - -PM：ICMP协议的地址掩码主机发现
@@ -37,7 +38,6 @@ Nmap具体功能：端口扫描，协议扫描，漏洞扫描，绕过防护，�
 - -PA：TCP ACK扫描，三次握手实现
 - -PY：SCTP协议的主机发现，4次握手的机制实现的
 - -PO：IP协议进行主机地址发现
-- -PN：不进行Ping扫描
 - -R：无论是否是活跃主机所对应的域名都列出来
 - -n：取消对域名的转换
 - --data-length：添加随机数据的数据包
@@ -46,6 +46,10 @@ Nmap具体功能：端口扫描，协议扫描，漏洞扫描，绕过防护，�
 
 ## 端口扫描
 
+- -p：指定某一个端口(-p 80/–p http/-p *)
+- -F：扫描常见的100个端口
+- -O：nmap进行OS探测
+- -sV：指定nmap进行服务版本探测
 - -sS：TCP SYN扫描，没有完成三次握手（匿名扫描，默认不加类型，需要root权限，扫描速度快）
 - -sT：Connect扫描，完成了TCP的三次握手（不需要root权限，TCP扫描的默认模式，端口状态和SYN相同，耗时长）
 - -sU：UDP扫描，速度慢
@@ -53,25 +57,43 @@ Nmap具体功能：端口扫描，协议扫描，漏洞扫描，绕过防护，�
 - -sN：TCP NULL扫描，向目标端口发送一个不包含任何标志的数据包
 - -sX：TCP Xmas Tree扫描，向目标端口发送一个含有FIN、URG和PUSH标志的数据包
 - -sI：idle扫描，伪装成 “第三方” 使自己不被发现
-- -sV：指定nmap进行版本探测
-- -O：nmap进行OS探测
-- -F：扫描常见的100个端口
-- -p：指定某一个端口(-p 80/–p http/-p *)
+
+## 其他命令
+
+- -A：强力检测，也会弹出os
+- -sC：默认脚本扫描
+- -T1-6：扫描速度
+- -oN：扫描结果保存文件
+- -vv：打印详情
+- -e：指定网卡扫描
+- --host-timeout：限制扫描时间
+- -f、--mtu：数据包分片技术，有些防火墙不会进行重组处理，从而逃脱防火墙或闯入检测系统的检测。注意，mtu 的值必须是 8 的倍数（如16、24等）。
+- --data-length：添加垃圾数据
+- 
 
 ## nmap常用的扫描命令
 
 ```nmap
-查找网络中的所有活动IP地址
-nmap -sP 192.168.0.*
-
-获取远程主机的端口和OS检测的信息
-nmap -sS -P0 -sV -O ip
+常用基础命令
+nmap -p- -v -sS -sV -Pn -T4 -oN 1.txt 127.0.0.1
 
 获取打开特定端口的服务器列表
 nmap -sT -p 80 -oG – 192.168.1.* | grep open
 
-扫描B段
-sudo nmap -sS -Pn -n --open --min-hostgroup 500 --min-parallelism 2048 --host-timeout 30 -T4 -v -oG result.txt -iL ip.txt
+
+获取远程主机的端口和OS检测的信息
+nmap -sS -P0 -sV -O ip
+
+
+```
+
+## nmap插件
+
+- [Nmap的高级漏洞扫描模块Vulscan](https://github.com/scipag/vulscan)
+
+```nmap
+放到以下Nmap文件夹内：Nmap\scripts\vulscan\*
+nmap -sV --script=vulscan/vulscan.nse www.example.com
 ```
 
 ## nmap脚本分类
@@ -119,16 +141,6 @@ nmap --script=ftp-brute.nse ip
 利用第三方的数据库或资源
 nmap --script=external ip
 ```
-
-### nmap插件
-
-- [Nmap的高级漏洞扫描模块Vulscan](https://github.com/scipag/vulscan)
-
-```nmap
-放到以下Nmap文件夹内：Nmap\scripts\vulscan\*
-nmap -sV --script=vulscan/vulscan.nse www.example.com
-```
-
 
 ### 扩展执行流程
 
