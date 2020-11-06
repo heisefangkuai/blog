@@ -38,19 +38,15 @@ parser.ArgumentParser(prog=None,
 ```
 
 1. prog：生成帮助信息中的程序名，默认情况下用sys.argv[0]的值。可以通过%(prog)s来引用程序的文件名。
-2. usage：描述程序用途的字符串
+2. usage：描述程序用途的字符串,描述信息会替换掉prog参数
 3. description：help信息前显示的信息
 4. epilog：help信息之后显示的信息
 5. parents：有时多个解析器可能有相同的参数集，为了实现代码复用，我们可以将这些相同的参数集提取到一个单独的解析器中，在创建其它解析器时通过parents指定父解析器，这样新创建的解析器中就包含了相同的参数集。
-6. formatter_class：help信息输出的格式，为了美观…
-   1. class argparse.RawDescriptionHelpFormatter
-   2. class argparse.RawTextHelpFormatter
-   3. class argparse.ArgumentDefaultsHelpFormatter
-   4. class argparse.MetavarTypeHelpFormatter
-7. prefix_chars：参数前缀，默认为'-'(最好不要修改)
+6. formatter_class：help信息输出的格式，为了美观…（不修改）
+7. prefix_chars：参数前缀，默认为'-'(不修改)
 8. fromfile_prefix_chars：文件前缀字符
 9. argument_default： 参数的默认值
-10. conflict_handler：冲突处理(最好不要修改)
+10. conflict_handler：冲突处理(不修改)
 11. add_help：是否禁用-h –help选项
 12. allow_abbrev：是否使用参数缩写
 
@@ -94,11 +90,14 @@ parser.add_argument(name or flags...
 
 ## add_argument_group对命令行参数进行概念性分组
 
+```
 foo_group = parser.add_argument_group(title='Foo options')
 target = parser.add_argument_group("Target", "设置Target")
+```
 
 ## 互斥参数
 
+```
 parser = argparse.ArgumentParser()
 group = parser.add_mutually_exclusive_group()
 group.add_argument("-v", "--verbose", action="store_true")
@@ -106,6 +105,7 @@ group.add_argument("-q", "--quiet", action="store_true")
 parser.add_argument("x", type=int, help="the base")
 parser.add_argument("y", type=int, help="the exponent")
 args = parser.parse_args()
+```
 
 -q和-v不出现，或仅出现一个都可以，同时出现就会报错。
 
